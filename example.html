@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript" src="jquery.donutchart.js"></script>
+    
+  <!--[if lte IE 8]>
+    <script type="text/javascript" src="http://explorercanvas.googlecode.com/svn/trunk/excanvas.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+<div id="donutchart1" data-percent="50"></div>
+<div id="donutchart2" data-percent="65"></div>
+<div id="donutchart3" data-percent="85"></div>
+
+<button onclick="startAnimate()">Animate me</button>
+
+
+<script>
+$("#donutchart1").donutchart({'size': 150 });
+$("#donutchart1").donutchart("animate");
+
+$("#donutchart2").donutchart({'size': 200, 'fgColor': 'blue' });
+$("#donutchart2").donutchart("animate");
+
+$("#donutchart3").donutchart({'size': 300, 'fgColor': 'green' });
+
+
+function startAnimate() { $("#donutchart3").donutchart("animate"); }
+
+
+</script>
+</body>
+</html>
