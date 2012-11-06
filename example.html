@@ -1,36 +1,47 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-  <script type="text/javascript" src="jquery.donutchart.js"></script>
-    
-  <!--[if lte IE 8]>
-    <script type="text/javascript" src="http://explorercanvas.googlecode.com/svn/trunk/excanvas.js"></script>
-  <![endif]-->
-</head>
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Donut Chart Example</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="imagetoolbar" content="no" />
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script> <!-- REQUIRED FILE -->
+		  
+		<!--[if lte IE 8]>
+			<script type="text/javascript" src="http://explorercanvas.googlecode.com/svn/trunk/excanvas.js"></script>
+		<![endif]-->
+		
+		<script type="text/javascript" src="jquery.donutchart.src.js"></script> <!-- REQUIRED FILE -->
+	</head>
 
-<body>
-
-<div id="donutchart1" data-percent="50"></div>
-<div id="donutchart2" data-percent="65"></div>
-<div id="donutchart3" data-percent="85"></div>
-
-<button onclick="startAnimate()">Animate me</button>
-
-
-<script>
-$("#donutchart1").donutchart({'size': 150 });
-$("#donutchart1").donutchart("animate");
-
-$("#donutchart2").donutchart({'size': 200, 'fgColor': 'blue' });
-$("#donutchart2").donutchart("animate");
-
-$("#donutchart3").donutchart({'size': 300, 'fgColor': 'green' });
-
-
-function startAnimate() { $("#donutchart3").donutchart("animate"); }
-
-
-</script>
-</body>
+	<body>
+		Basic example of the donutchart() widget. View the source code.<br /><br />
+		
+		<button id="re_animate_btn">Re-animate</button><br /><br />
+		
+		<div id="donutchart1" data-percent="50"></div>
+		<div id="donutchart2" data-percent="65"></div>
+		<div id="donutchart3" data-percent="85"></div>
+		
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#donutchart1").donutchart({});
+				$("#donutchart2").donutchart({size:200,
+											  color:'blue',
+											  animate:false});
+				$("#donutchart3").donutchart({size:300,
+											  color:'green',
+											  donut_width:90,
+											  background_color:"#888"});
+				
+				if ($.ui !== undefined) {
+					$('#re_animate_btn').button();
+				}
+				$('#re_animate_btn').on('click', function() {
+					$("#donutchart1").donutchart('animate');
+					$("#donutchart2").donutchart('animate', 30);
+					$("#donutchart3").donutchart('animate', 10);
+				});
+			});
+		</script>
+	</body>
 </html>
